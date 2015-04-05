@@ -21,6 +21,11 @@ module DiscourseApi
         response[:body]['topic_list']['topics']
       end
 
+      def top_topics(params={})
+        response = get("/top.json", params)
+        response[:body]['topic_list']['topics']
+      end
+
       def rename_topic(topic_id, title)
         put("/t/#{topic_id}.json", { topic_id: topic_id, title: title })
       end
